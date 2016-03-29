@@ -1,3 +1,6 @@
+/frontend/web/.htaccess
+/backend/web/.htaccess
+/api/web/.htaccess
 # yii console command
 /yii
 
