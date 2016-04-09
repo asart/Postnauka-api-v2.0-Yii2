@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m130524_201442_init extends Migration
+class m160409_134131_tag extends Migration
 {
     public function up()
     {
@@ -12,14 +12,11 @@ class m130524_201442_init extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%user}}', [
+        $this->createTable('{{%tag}}', [
             'id' => $this->primaryKey(),
-            'username' => $this->string()->notNull()->unique(),
-            'auth_key' => $this->string(32)->notNull(),
-            'password_hash' => $this->string()->notNull(),
-            'password_reset_token' => $this->string()->unique(),
-            'email' => $this->string()->notNull()->unique(),
-            'img' => $this->string(),
+            'eng' => $this->string()->notNull(),
+            'rus' => $this->string(32),
+            'desc' => $this->text(),
 
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'created_at' => $this->integer()->notNull(),
@@ -29,6 +26,17 @@ class m130524_201442_init extends Migration
 
     public function down()
     {
-        $this->dropTable('{{%user}}');
+        $this->dropTable('{{%tag}}');
     }
+
+    /*
+    // Use safeUp/safeDown to run migration code within a transaction
+    public function safeUp()
+    {
+    }
+
+    public function safeDown()
+    {
+    }
+    */
 }
