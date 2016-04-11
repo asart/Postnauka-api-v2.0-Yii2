@@ -14,6 +14,8 @@ use yii\filters\VerbFilter;
  */
 class PostController extends Controller
 {
+    public $layout = 'dashboard';
+
     public function behaviors()
     {
         return [
